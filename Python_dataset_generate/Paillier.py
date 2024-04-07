@@ -798,8 +798,12 @@ if __name__ == "__main__":
         # Generate the keypair
         public_key, private_key = generate_paillier_keypair(n_length=args.keysize)
         r=public_key.get_random_lt_n()
-        m=public_key.get_random_lt_n()  #1 to n 
-        #add corner case
+        if math.gcd(r,public_key.n)!=1:   #check whether have gcd(r,n)==1
+            print("gcd(r,n)!=1,regenerate")
+            i=i-1
+            continue
+        m=public_key.get_random_lt_n()  # random plaintext number 1 to n 
+        #add m=0 corner case
         if i==0:
             m=0
         # calculate private keys
@@ -815,7 +819,7 @@ if __name__ == "__main__":
         cipher=public_key.raw_encrypt(plaintext=m, r_value=r)
         plaintext=private_key.raw_decrypt(ciphertext = cipher)
         #transfer to hex output
-        hex_g=hex(public_key.g)[2:]  #public keys
+        hex_g=hex(public_key.g)[2:]  #public keys(for p,q with the same length, g=n+1)
         hex_n=hex(public_key.n)[2:]
         hex_ld=hex(ld)[2:]   #private keys
         hex_u=hex(u)[2:]
@@ -857,31 +861,3 @@ if __name__ == "__main__":
     print(f"  m and r values have been written to {mr_file}")
     print(f"  cipher values have been written to {cipher_file}")
     print(f"  plaintext values have been written to {plaintext_file}\n")
-
-
-
-
-    '''
-            with open(public_key_file, 'a') as file:
-            file.write(f"Public Key{suffix}: {public_key}\n")
-        
-        # Writing the private key to its file
-        with open(private_key_file, 'a') as file:
-            file.write(f"Private Key{suffix}: {private_key}\n")
-
-        # Writing the p and q values to their file
-        with open(pq_file, 'a') as file:
-            # Assuming private_key object has attributes for p and q
-            file.write(f"p{suffix}: {hex_value_p}\n")
-            file.write(f"q{suffix}: {hex_value_q}\n")
-      #mr
-        with open(mr_file, 'a') as file:
-            file.write(f"m{suffix}: {hex_m}\n")
-            file.write(f"r{suffix}: {hex_r}\n")
-      #cipher
-        with open(cipher_file, 'a') as file:
-            file.write(f"cipher{suffix}: {hex_cipher}\n")
-      #decrytion plaintext
-        with open(plaintext_file, 'a') as file:
-            file.write(f"plaintext{suffix}: {hex_plaintext}\n")
-    '''
