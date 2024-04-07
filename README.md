@@ -1,12 +1,12 @@
-## generate dataset
+## Generate dataset
 ```
 pip install phe
 ```
 ```
- python Paillier.py --keysize 2048 --numkeys 3 
+python Paillier.py --keysize 2048 --numkeys 3 
 ```
 
-## reference 
+## Reference 
 https://github.com/data61/python-paillier
 
 
