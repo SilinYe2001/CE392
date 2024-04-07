@@ -94,7 +94,7 @@ class PaillierPublicKey(object):
 
     def __repr__(self):
         publicKeyHash = hex(hash(self))[2:]
-        return publicKeyHash[:10]
+        return  "<PaillierPublicKey {}>".format(publicKeyHash[:10])
 
     def __eq__(self, other):
         return self.n == other.n
@@ -265,7 +265,7 @@ class PaillierPrivateKey(object):
 
     def __repr__(self):
         pub_repr = repr(self.public_key)
-        return pub_repr
+        return "<PaillierPrivateKey for {}>".format(pub_repr)
 
     def decrypt(self, encrypted_number):
         """Return the decrypted & decoded plaintext of *encrypted_number*.
@@ -757,22 +757,76 @@ if __name__ == "__main__":
     parser.add_argument('--numkeys', type=int, default=1, help='Number of keypairs to generate. Default is 1.')
     
     args = parser.parse_args()
-    public_key_file = f'paillier_public_key.txt'
-    private_key_file = f'paillier_private_key.txt'
-    pq_file = f'paillier_pq_values.txt'
+    public_key_file = f'public_key_gn.hex'
+    private_key_file = f'private_key.hex'
+    pq_file = f'pq_values.hex'
+    mr_file = f'mr_values.hex'
+    cipher_file = f'cipher_file.hex'
+    plaintext_file = f'plaintext_file.hex'
     #clean the output file
     open(public_key_file, 'w').close()
     open(private_key_file, 'w').close()
     open(pq_file, 'w').close()
+    open(mr_file, 'w').close()
+    open(cipher_file, 'w').close()
+    open(plaintext_file, 'w').close()
     for i in range(args.numkeys):
         # Generate the keypair
         public_key, private_key = generate_paillier_keypair(n_length=args.keysize)
+        r=public_key.get_random_lt_n()
+        m=public_key.get_random_lt_n()  #1 to n 
+        #add corner case
+        if i==0:
+            m=0
+        cipher=public_key.raw_encrypt(plaintext=m, r_value=r)
+        plaintext=private_key.raw_decrypt(ciphertext = cipher)
+        hex_g=hex(public_key.g)[2:]
+        hex_n=hex(public_key.n)[2:]
         hex_value_p = hex(private_key.p)[2:]  # Converts to hex and removes the '0x' prefix
         hex_value_q = hex(private_key.q)[2:]  # Converts to hex and removes the '0x' prefix
+        hex_m=hex(m)[2:]
+        hex_r=hex(r)[2:]
+        hex_cipher=hex(cipher)[2:]
+        hex_plaintext=hex(plaintext)[2:]
         # Output file names with index if more than one keypair is generated
         suffix = f"{i}" if args.numkeys > 1 else ""        
         # Writing the public key to its file
         with open(public_key_file, 'a') as file:
+            file.write(f"{hex_n}\n")
+            file.write(f"{hex_g}\n")
+        
+        # Writing the private key to its file
+        with open(private_key_file, 'a') as file:
+            file.write(f"{private_key}\n")
+
+        # Writing the p and q values to their file
+        with open(pq_file, 'a') as file:
+            # Assuming private_key object has attributes for p and q
+            file.write(f"{hex_value_p}\n")
+            file.write(f"{hex_value_q}\n")
+      #mr
+        with open(mr_file, 'a') as file:
+            file.write(f"{hex_m}\n")
+            file.write(f"{hex_r}\n")
+      #cipher
+        with open(cipher_file, 'a') as file:
+            file.write(f"{hex_cipher}\n")
+      #decrytion plaintext
+        with open(plaintext_file, 'a') as file:
+            file.write(f"{hex_plaintext}\n")
+        print(f"Set {i+1} finish")
+    print(f"  Public key has been written to {public_key_file}")
+    print(f"  Private key has been written to {private_key_file}")
+    print(f"  p and q values have been written to {pq_file}")
+    print(f"  m and r values have been written to {mr_file}")
+    print(f"  cipher values have been written to {cipher_file}")
+    print(f"  plaintext values have been written to {plaintext_file}\n")
+
+
+
+
+    '''
+            with open(public_key_file, 'a') as file:
             file.write(f"Public Key{suffix}: {public_key}\n")
         
         # Writing the private key to its file
@@ -784,8 +838,14 @@ if __name__ == "__main__":
             # Assuming private_key object has attributes for p and q
             file.write(f"p{suffix}: {hex_value_p}\n")
             file.write(f"q{suffix}: {hex_value_q}\n")
-        
-        print(f"Set {i+1} finish")
-    print(f"  Public key has been written to {public_key_file}")
-    print(f"  Private key has been written to {private_key_file}")
-    print(f"  p and q values have been written to {pq_file}\n")
+      #mr
+        with open(mr_file, 'a') as file:
+            file.write(f"m{suffix}: {hex_m}\n")
+            file.write(f"r{suffix}: {hex_r}\n")
+      #cipher
+        with open(cipher_file, 'a') as file:
+            file.write(f"cipher{suffix}: {hex_cipher}\n")
+      #decrytion plaintext
+        with open(plaintext_file, 'a') as file:
+            file.write(f"plaintext{suffix}: {hex_plaintext}\n")
+    '''
