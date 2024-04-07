@@ -804,8 +804,13 @@ if __name__ == "__main__":
             m=0
         # calculate private keys
         ld=lcm(private_key.p-1,private_key.q-1)  #calculate lambda
+        '''
+        #nommal variant
         pmod=powmod(public_key.g, ld, public_key.n*public_key.n)
-        u =invert(pmod,public_key.n)   #modular multiplicative inverse
+        u =invert(private_key.l_function(pmod,public_key.n),public_key.n)   #modular multiplicative inverse
+        '''
+        # simpler variant(when p,q are the same length)
+        u=invert(ld,public_key.n)
         #encryption and decryption
         cipher=public_key.raw_encrypt(plaintext=m, r_value=r)
         plaintext=private_key.raw_decrypt(ciphertext = cipher)
