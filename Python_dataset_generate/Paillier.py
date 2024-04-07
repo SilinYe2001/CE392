@@ -19,7 +19,7 @@
 
 """Paillier encryption library for partially homomorphic encryption."""
 import random
-
+import math
 try:
     from collections.abc import Mapping
 except ImportError:
@@ -746,10 +746,34 @@ class EncryptedNumber(object):
             return powmod(neg_c, neg_scalar, self.public_key.nsquare)
         else:
             return powmod(self.ciphertext(False), plaintext, self.public_key.nsquare)
+# Python3 program to find LCM of two 
+# large numbers
+import math
+
+# Function to calculate LCM of two
+# large numbers
+def lcm (a, b):
+
+	# Convert string 'a' and 'b' 
+	# into Integer
+	s = int(a)
+	s1 = int(b)
+
+	# Calculate multiplication of 
+	# both integers
+	mul = s * s1
+
+	# Calculate gcd of two integers
+	gcd = math.gcd(s, s1)
+
+	# Calculate lcm using 
+	# formula: lcm * gcd = x * y
+	lcm = mul // gcd
+
+	return lcm
 
 
 
-#add main file for configuration and file output 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Generate Paillier keypairs with configurable key size and quantity.')
@@ -757,8 +781,8 @@ if __name__ == "__main__":
     parser.add_argument('--numkeys', type=int, default=1, help='Number of keypairs to generate. Default is 1.')
     
     args = parser.parse_args()
-    public_key_file = f'public_key_gn.hex'
-    private_key_file = f'private_key.hex'
+    public_key_file = f'public_key_g_n.hex'
+    private_key_file = f'private_key_ld_u.hex'
     pq_file = f'pq_values.hex'
     mr_file = f'mr_values.hex'
     cipher_file = f'cipher_file.hex'
@@ -778,27 +802,34 @@ if __name__ == "__main__":
         #add corner case
         if i==0:
             m=0
+        # calculate private keys
+        ld=lcm(private_key.p-1,private_key.q-1)  #calculate lambda
+        pmod=powmod(public_key.g, ld, public_key.n*public_key.n)
+        u =invert(pmod,public_key.n)   #modular multiplicative inverse
+        #encryption and decryption
         cipher=public_key.raw_encrypt(plaintext=m, r_value=r)
         plaintext=private_key.raw_decrypt(ciphertext = cipher)
-        hex_g=hex(public_key.g)[2:]
+        #transfer to hex output
+        hex_g=hex(public_key.g)[2:]  #public keys
         hex_n=hex(public_key.n)[2:]
-        hex_value_p = hex(private_key.p)[2:]  # Converts to hex and removes the '0x' prefix
-        hex_value_q = hex(private_key.q)[2:]  # Converts to hex and removes the '0x' prefix
-        hex_m=hex(m)[2:]
+        hex_ld=hex(ld)[2:]   #private keys
+        hex_u=hex(u)[2:]
+        hex_value_p = hex(private_key.p)[2:]  # secret p and q
+        hex_value_q = hex(private_key.q)[2:]  
+        hex_m=hex(m)[2:]      # plaintex m and random number r 
         hex_r=hex(r)[2:]
-        hex_cipher=hex(cipher)[2:]
+        hex_cipher=hex(cipher)[2:]    #encrypted cipher and decrypted plaintext
         hex_plaintext=hex(plaintext)[2:]
         # Output file names with index if more than one keypair is generated
         suffix = f"{i}" if args.numkeys > 1 else ""        
-        # Writing the public key to its file
+        # Writing the public key n and g to its file
         with open(public_key_file, 'a') as file:
             file.write(f"{hex_n}\n")
             file.write(f"{hex_g}\n")
-        
-        # Writing the private key to its file
+        # Writing the private key ld and u to its file
         with open(private_key_file, 'a') as file:
-            file.write(f"{private_key}\n")
-
+            file.write(f"{hex_ld}\n")
+            file.write(f"{hex_u}\n")
         # Writing the p and q values to their file
         with open(pq_file, 'a') as file:
             # Assuming private_key object has attributes for p and q
