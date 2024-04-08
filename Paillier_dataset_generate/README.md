@@ -1,3 +1,10 @@
+## Generate dataset
+```
+pip install phe
+```
+```
+python Paillier.py --keysize 2048 --numkeys 3 
+```
 ## pq_file:
 equal length prime numbers
 p0 
