@@ -746,6 +746,7 @@ class EncryptedNumber(object):
             return powmod(neg_c, neg_scalar, self.public_key.nsquare)
         else:
             return powmod(self.ciphertext(False), plaintext, self.public_key.nsquare)
+'''
 # Python3 program to find LCM of two 
 # large numbers
 import math
@@ -772,7 +773,7 @@ def lcm (a, b):
 
 	return lcm
 
-
+'''
 
 
 if __name__ == "__main__":
