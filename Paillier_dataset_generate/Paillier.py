@@ -807,7 +807,10 @@ if __name__ == "__main__":
         if i==0:
             m=0
         # calculate private keys
-        ld=lcm(private_key.p-1,private_key.q-1)  #calculate lambda
+        '''
+        ld= lcm(private_key.p-1,private_key.q-1)
+        '''
+        ld=(private_key.p-1)*(private_key.q-1)  #calculate lambda(when p,q are the same length)
         '''
         #nommal variant
         pmod=powmod(public_key.g, ld, public_key.n*public_key.n)
