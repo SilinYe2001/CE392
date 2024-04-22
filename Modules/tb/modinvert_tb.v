@@ -70,6 +70,9 @@ initial begin
     
     // Read from files and process
     while (!$feof(base_file) && !$feof(mod_file)) begin
+        while (!din_ready) begin
+            @(posedge clock);
+        end
         r_base = $fscanf(base_file, "%h\n", din_bits_base); // Read base
         r_mod = $fscanf(mod_file, "%h\n", din_bits_mod); // Read mod
         if (r_base != 1 || r_mod != 1) begin
@@ -77,17 +80,19 @@ initial begin
             //break;
         end
         din_valid = 1;
+        @(posedge clock);
+   
         dout_ready = 1;
         @(posedge clock);
-        while (!din_ready || !dout_valid) begin
+        while (!dout_valid) begin
             @(posedge clock);
         end
-        
         @(posedge clock);
         // Output results if valid data is ready
        // if (dout_valid) begin
-            $fdisplay(output_file, "%h", dout_bits_res);
+        $fdisplay(output_file, "%h", dout_bits_res);
        // end
+        @(posedge clock);
         din_valid = 0;
         dout_ready = 0;
     end
