@@ -1,14 +1,15 @@
 module key_generation #(
     parameter DATA_WIDTH=256,
-    parameter ADDRESS_WIDTH=64
+    parameter ADDRESS_WIDTH=64,
+    parameter FILE_SIZE = 5
 )(
     input logic clk,
     input logic rst,
     input logic start,
     output logic done, 
     //input data
-    input logic [DATA_WIDTH-1:0]p,
-    input logic [DATA_WIDTH-1:0]q,
+    input logic [DATA_WIDTH/2-1:0]p,
+    input logic [DATA_WIDTH/2-1:0]q,
     //ram
     output logic [ADDRESS_WIDTH-1:0]addr_rd_out,
     //output logic mem_rd_en,  // not use for now
@@ -50,8 +51,6 @@ always @(posedge clk or posedge rst) begin
 
     end
 end
-
-
 assign addr_rd_out=addr_rd;
 assign addr_wr_out=addr_wr;
 assign n_out=n;
@@ -84,30 +83,29 @@ always_comb begin
             n_lambda=(p-1)*(q-1);
             din_valid='1;       // valid signal after read 
             if (din_ready=='1) begin
-                n_state=CALCULATING;
-                n_addr_rd=addr_rd+'1;
-            end
+                n_state=CALCULATING;  
+            end 
+
         end
         CALCULATING: begin  //multicycle calculate modular inverse
             dout_ready='1;
             if(dout_valid=='1)begin //write
-                if(counter==2**ADDRESS_WIDTH-1) begin  //running out of memory
-                    n_state=FINISH;  
-                end
-                else begin
-                    n_state=READ;
-                end
+                n_state=FINISH;
                 n_counter=counter+1;
-                mem_wr_en='1;
-                // n_out=n;
-                // g_out=n+'1;
-                // lambda_out=lambda;
-                n_addr_wr=addr_wr+'1;
             end
         end
         FINISH: begin  //DONE
-            done='1;
-            n_state=WAIT;
+            if(counter==FILE_SIZE) begin  //running out of memory
+                n_state=FINISH;  
+                done='1;
+                n_state=WAIT;
+            end
+            else begin
+                n_addr_wr=addr_wr+1;
+                n_addr_rd=addr_rd+1;
+                n_state=READ;
+            end  
+            mem_wr_en='1;
         end
         default: begin
             

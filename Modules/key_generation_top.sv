@@ -1,18 +1,18 @@
 module key_generation_top#(
   DATA_WIDTH=1024,
   RAM_ADDR_WIDTH=5,
-  RAM_SIZE=32
+  FILE_SIZE=32
 )(   
     input logic clock,
     input logic reset,
     input logic  start, 
     output logic done,
     //p in
-    input logic [DATA_WIDTH-1:0]p_din,
+    input logic [DATA_WIDTH/2-1:0]p_din,
     input logic [RAM_ADDR_WIDTH-1:0]p_wr_addr,
     input logic p_wr_en,
     //q in
-    input logic [DATA_WIDTH-1:0]q_din,
+    input logic [DATA_WIDTH/2-1:0]q_din,
     input logic [RAM_ADDR_WIDTH-1:0]q_wr_addr,
     input logic q_wr_en,
     //out
@@ -24,13 +24,14 @@ module key_generation_top#(
 
 );
 
-logic [DATA_WIDTH-1:0]p_dout,q_dout;
+logic [DATA_WIDTH/2-1:0]p_dout,q_dout;
 logic [DATA_WIDTH-1:0]u_din,n_din,g_din,lambda_din;
 logic [RAM_ADDR_WIDTH-1:0] addr_rd_out,addr_wr_out;
 logic wr_en_out;
 key_generation #(
     .DATA_WIDTH(DATA_WIDTH),
-    .ADDRESS_WIDTH(RAM_ADDR_WIDTH)
+    .ADDRESS_WIDTH(RAM_ADDR_WIDTH),
+    .FILE_SIZE(FILE_SIZE)
 )key_generation(
     .clk(clock),
     .rst(reset),
@@ -49,7 +50,7 @@ key_generation #(
 // input RAMs
 bram #(
     .BRAM_ADDR_WIDTH(RAM_ADDR_WIDTH),
-    .BRAM_DATA_WIDTH(DATA_WIDTH)
+    .BRAM_DATA_WIDTH(DATA_WIDTH/2)
 ) ram_p ( /* synthesis syn_preserve = 1 */ 
     .clock(clock),
     .rd_addr(addr_rd_out),
@@ -60,7 +61,7 @@ bram #(
 );
 bram #(
     .BRAM_ADDR_WIDTH(RAM_ADDR_WIDTH),
-    .BRAM_DATA_WIDTH(DATA_WIDTH)
+    .BRAM_DATA_WIDTH(DATA_WIDTH/2)
 ) ram_q ( /* synthesis syn_preserve = 1 */ 
     .clock(clock),
     .rd_addr(addr_rd_out),
