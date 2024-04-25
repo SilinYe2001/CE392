@@ -2,17 +2,18 @@ module key_generation_tb;
 
     localparam DATA_WIDTH =1024 ;
     localparam RAM_ADDR_WIDTH=5;
-    localparam FILE_SIZE=2**RAM_ADDR_WIDTH;
+    localparam FILE_SIZE=5;
+    localparam CLOCK_PERIOD=10;
     logic clock;
     logic reset;
     logic start;
     logic done;
     //p in
-    logic [DATA_WIDTH-1:0]p_din;
+    logic [DATA_WIDTH/2-1:0]p_din;
     logic [RAM_ADDR_WIDTH-1:0]p_wr_addr;
     logic p_wr_en;
     //q in
-    logic [DATA_WIDTH-1:0]q_din;
+    logic [DATA_WIDTH/2-1:0]q_din;
     logic [RAM_ADDR_WIDTH-1:0]q_wr_addr;
     logic q_wr_en;
     //out
@@ -25,7 +26,7 @@ module key_generation_tb;
 key_generation_top #(
     .DATA_WIDTH(DATA_WIDTH),
     .RAM_ADDR_WIDTH(RAM_ADDR_WIDTH),
-    .RAM_SIZE(FILE_SIZE)
+    .FILE_SIZE(FILE_SIZE)
   ) u_key_generation_top (
     .clock(clock),
     .reset(reset),
@@ -45,18 +46,18 @@ key_generation_top #(
   );
 
   // File handles
-  string input_file_1= "p_value.txt";
-  string input_file_2="q_value.txt";
+  string input_file_1= "p_values.txt";
+  string input_file_2="q_values.txt";
   string output_file_u = "out_u.txt";
   string output_file_n = "out_n.txt";
   string output_file_g = "out_g.txt";
   string output_file_lambda = "out_lambda.txt";
-  string expected_file = "z.txt";
+  // string expected_file = "z.txt";
   logic x_write_done='0;
   logic y_write_done='0;
   logic z_store_done='0;
-  logic z_read_done='0;
-  int z_errors='0;
+  //logic z_read_done='0;
+  //int z_errors='0;
   // Clock generation
   always begin
     #(CLOCK_PERIOD/2) clock=1'b1;
