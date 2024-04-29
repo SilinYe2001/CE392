@@ -54,7 +54,7 @@ key_generation_top #(
   string output_file_lambda = "out_lambda.txt";
 
   //expect file 
-  string expected_file = "private_key_ld.txt";
+  string expected_file = "private_key_u.txt";
 
 
   logic x_write_done='0;
@@ -157,7 +157,7 @@ end
     wait(done);
     @(negedge clock);
     $display("@ %0t Store output data begin",$time);
-    $display("@ %0t Compare lambda with %s...",$time,expected_file);
+    $display("@ %0t Compare u with %s...",$time,expected_file);
     expected_file_handle = $fopen(expected_file, "r");
     output_file_handle_u = $fopen(output_file_u, "w");
     output_file_handle_n = $fopen(output_file_n, "w");
@@ -166,17 +166,17 @@ end
     if (output_file_handle_u == 0 || output_file_handle_n == 0 || output_file_handle_g == 0 || output_file_handle_lambda == 0)
       $fatal("Unable to store output data file"); 
     if (expected_file_handle == 0)
-      $fatal("Unable to open expected lambda data file");  
+      $fatal("Unable to open expected u data file");  
     for (int i = 0; i < FILE_SIZE; i = i + 1) begin
         @(posedge clock);
   //    for (int j = 0; j < MATRIX_SIZE; j = j + 1) begin
         tmp=$fscanf(expected_file_handle, "%h", z_data_cmp);
         out_rd_addr=i;
         @(posedge clock);
-        z_data_read=lambda_dout;
+        z_data_read=u_dout;
         if (z_data_cmp != z_data_read) begin
           z_errors++;
-          $display("@ %0t :output lambda contents:%h != %h at address i= %d",$time,z_data_read,z_data_cmp,i);
+          $display("@ %0t :output u contents:%h != %h at address i= %d",$time,z_data_read,z_data_cmp,i);
         end
         $fwrite(output_file_handle_u, "%h\n", u_dout);
         $fwrite(output_file_handle_n, "%h\n", n_dout);
