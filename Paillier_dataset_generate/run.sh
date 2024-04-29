@@ -1,0 +1,1 @@
+python3 Paillier.py --keysize 1024 --numkeys 10

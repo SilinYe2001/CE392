@@ -12,3 +12,10 @@ vsim -classdebug -voptargs=+acc +notimingchecks -L work work.key_generation_tb -
 # wave
 add wave -noupdate -group key_generation_tb
 add wave -noupdate -group key_generation_tb -radix hexadecimal /key_generation_tb/*
+
+add wave -noupdate -group key_generation_tb/u_key_generation_top
+add wave -noupdate -group key_generation_tb/u_key_generation_top -radix hexadecimal /key_generation_tb/u_key_generation_top/*
+
+add wave -noupdate -group key_generation_tb/u_key_generation_top/key_generation
+add wave -noupdate -group key_generation_tb/u_key_generation_top/key_generation -radix hexadecimal /key_generation_tb/u_key_generation_top/key_generation/*
+run -all

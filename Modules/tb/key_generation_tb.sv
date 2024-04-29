@@ -2,7 +2,7 @@ module key_generation_tb;
 
     localparam DATA_WIDTH =1024 ;
     localparam RAM_ADDR_WIDTH=5;
-    localparam FILE_SIZE=5;
+    localparam FILE_SIZE=10;
     localparam CLOCK_PERIOD=10;
     logic clock;
     logic reset;
@@ -52,12 +52,16 @@ key_generation_top #(
   string output_file_n = "out_n.txt";
   string output_file_g = "out_g.txt";
   string output_file_lambda = "out_lambda.txt";
-  // string expected_file = "z.txt";
+
+  //expect file 
+  string expected_file = "private_key_ld.txt";
+
+
   logic x_write_done='0;
   logic y_write_done='0;
   logic z_store_done='0;
   //logic z_read_done='0;
-  //int z_errors='0;
+  int z_errors='0;
   // Clock generation
   always begin
     #(CLOCK_PERIOD/2) clock=1'b1;
@@ -81,8 +85,9 @@ initial begin
     wait(done);
     end_time=$time;
     $display("@ %0t:Testbench completed",end_time);
+
     wait(z_store_done)
-    $display("total simulation cycle count: %0d",(end_time-start_time)/CLOCK_PERIOD);
+    $display("Total number of cycles: %d for %d datas",(end_time-start_time)/CLOCK_PERIOD,FILE_SIZE);
     $finish;
 end
 
@@ -143,26 +148,42 @@ end
     int output_file_handle_n;
     int output_file_handle_g;
     int output_file_handle_lambda;
+
+    //compare variable 
+    int expected_file_handle;
+    int tmp;
+    logic [DATA_WIDTH-1:0] z_data_cmp,z_data_read;
     @(negedge reset);
     wait(done);
     @(negedge clock);
     $display("@ %0t Store output data begin",$time);
+    $display("@ %0t Compare lambda with %s...",$time,expected_file);
+    expected_file_handle = $fopen(expected_file, "r");
     output_file_handle_u = $fopen(output_file_u, "w");
     output_file_handle_n = $fopen(output_file_n, "w");
     output_file_handle_g = $fopen(output_file_g, "w");
     output_file_handle_lambda = $fopen(output_file_lambda, "w");
     if (output_file_handle_u == 0 || output_file_handle_n == 0 || output_file_handle_g == 0 || output_file_handle_lambda == 0)
-      $fatal("Unable to store output data file");  
+      $fatal("Unable to store output data file"); 
+    if (expected_file_handle == 0)
+      $fatal("Unable to open expected lambda data file");  
     for (int i = 0; i < FILE_SIZE; i = i + 1) begin
         @(posedge clock);
   //    for (int j = 0; j < MATRIX_SIZE; j = j + 1) begin
+        tmp=$fscanf(expected_file_handle, "%h", z_data_cmp);
         out_rd_addr=i;
         @(posedge clock);
+        z_data_read=lambda_dout;
+        if (z_data_cmp != z_data_read) begin
+          z_errors++;
+          $display("@ %0t :output lambda contents:%h != %h at address i= %d",$time,z_data_read,z_data_cmp,i);
+        end
         $fwrite(output_file_handle_u, "%h\n", u_dout);
         $fwrite(output_file_handle_n, "%h\n", n_dout);
         $fwrite(output_file_handle_g, "%h\n", g_dout);
         $fwrite(output_file_handle_lambda, "%h\n", lambda_dout);
       end
+      $display("There are %d errors in total", z_errors);
   //  end
     @(posedge clock);
     out_rd_addr='0;
@@ -173,4 +194,5 @@ end
     $display("@ %0t Store output data finish",$time);
     z_store_done=1;
   end
+
 endmodule
