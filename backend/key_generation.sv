@@ -1,5 +1,5 @@
 module key_generation #(
-    parameter DATA_WIDTH=1024,
+    parameter DATA_WIDTH=128,
     parameter ADDRESS_WIDTH=64,
     parameter FILE_SIZE = 5
 )(
