@@ -1,0 +1,1 @@
+/home/sfs6562/CE392/backend/innovus/Top.enc.dat/libs/mmmc/key_generation.sdc

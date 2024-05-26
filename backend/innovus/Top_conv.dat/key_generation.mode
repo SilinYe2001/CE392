@@ -1,0 +1,61 @@
+catch { setDesignMode -process 45 }
+catch { setAnalysisMode -analysisType onChipVariation }
+catch { setAnalysisMode -checkType setup }
+catch { setAnalysisMode -clkSrcPath true }
+catch { setAnalysisMode -clockGatingCheck true }
+catch { setAnalysisMode -clockPropagation sdcControl }
+catch { setAnalysisMode -cppr none }
+catch { setAnalysisMode -enableMultipleDriveNet true }
+catch { setAnalysisMode -log true }
+catch { setAnalysisMode -sequentialConstProp false }
+catch { setAnalysisMode -skew true }
+catch { setAnalysisMode -timeBorrowing true }
+catch { setAnalysisMode -timingSelfLoopsNoSkew false }
+catch { setAnalysisMode -usefulSkew false }
+catch { setAnalysisMode -useOutputPinCap true }
+catch { setAnalysisMode -virtualIPO false }
+catch { setAnalysisMode -warn true }
+catch { setOptMode -activeHoldViews { an } }
+catch { setOptMode -activeSetupViews { an } }
+catch { setOptMode -autoHoldViews { an } }
+catch { setOptMode -autoSetupViews { an} }
+catch { setOptMode -drcMargin 0 }
+catch { setOptMode -effort high }
+catch { setOptMode -fixDrc true }
+catch { setOptMode -optimizeFF true }
+catch { setOptMode -setupTargetSlack 0 }
+setExtractRCMode  -engine preRoute -total_c_th 0 -relative_c_th 1 -coupling_c_th 0.1
+catch { setCTSMode -moveGateLimit 25 }
+catch {setNanoRouteMode -quiet -drouteFixAntenna false}
+catch {setNanoRouteMode -quiet -extractThirdPartyCompatible false}
+catch {setNanoRouteMode -quiet -grouteExpTdStdDelay 7.800000}
+catch {setNanoRouteMode -quiet -routeTopRoutingLayer 6}
+catch {setNanoRouteMode -quiet -routeWithSiDriven false}
+catch {setNanoRouteMode -quiet -routeWithTimingDriven false}
+
+catch { setPlaceMode -modulePlan true }
+catch { setPlaceMode -place_design_floorplan_mode false }
+catch { setPlaceMode -place_detail_check_route false }
+catch { setPlaceMode -place_detail_preserve_routing false }
+catch { setPlaceMode -place_detail_remove_affected_routing false }
+catch { setPlaceMode -place_detail_swap_eeq_cells false }
+catch { setPlaceMode -place_global_clock_gate_aware true }
+catch { setPlaceMode -place_global_cong_effort auto }
+catch { setPlaceMode -place_global_ignore_scan true }
+catch { setPlaceMode -place_global_ignore_spare false }
+catch { setPlaceMode -place_global_module_aware_spare false }
+catch { setPlaceMode -place_global_place_io_pins false }
+catch { setPlaceMode -place_global_reorder_scan true }
+catch { setPlaceMode -powerDriven false }
+catch { setPlaceMode -timingDriven true }
+catch { setIlmMode -keepHighFanoutPorts true -keepLoopBack false -keepFlatten true }
+catch { setUsefulSkewMode -ecoRoute false }
+catch { setDelayCalMode -enable_high_fanout true }
+catch { setDelayCalMode -eng_copyNetPropToNewNet true }
+catch { setDelayCalMode -engine aae }
+catch { setDelayCalMode -ignoreNetLoad false }
+catch { setPinAssignMode -pinEditInBatch false }
+catch { setTrialRouteMode -handlePreroute true }
+catch { setTrialRouteMode -keepMarkedOptRoutes true }
+catch { setSIMode -separate_delta_delay_on_data true }
+catch { setEndCapMode -boundary_tap false }

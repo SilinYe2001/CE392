@@ -1,0 +1,7 @@
+NetName                                 vlPeak      vlView              vhPeak      vhView              
+#
+u_out[18]  0.23386  (RIP) an  0.47718  (RIP) an
+u_out[11]  0.29348  (RIP) an  0.4807  (RIP) an
+u_out[10]  0.25795  (RIP) an  0.49588  (RIP) an
+
+Total number of glitch violations: 3

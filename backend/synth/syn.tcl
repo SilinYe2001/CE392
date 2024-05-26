@@ -1,5 +1,5 @@
 # Set up environment variables
-set design_name "key_generation"
+set design_name "Top"
 set top_module "key_generation"
 set library_path "/vol/ece303/genus_tutorial/NangateOpenCellLibrary_typical.lib"
 set lef_path "/vol/ece303/genus_tutorial/NangateOpenCellLibrary.lef"

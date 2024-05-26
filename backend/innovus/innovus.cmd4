@@ -1,0 +1,641 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Sat May 25 20:47:58 2024                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v16.20-p002_1 (64bit) 11/08/2016 11:31 (Linux 2.6.18-194.el5)
+#@(#)CDS: NanoRoute 16.20-p002_1 NR161103-1425/16_20-UB (database version 2.30, 354.6.1) {superthreading v1.34}
+#@(#)CDS: AAE 16.20-p004 (64bit) 11/08/2016 (Linux 2.6.18-194.el5)
+#@(#)CDS: CTE 16.20-p008_1 () Oct 29 2016 08:26:57 ( )
+#@(#)CDS: SYNTECH 16.20-p001_1 () Oct 27 2016 11:33:00 ( )
+#@(#)CDS: CPE v16.20-p011
+#@(#)CDS: IQRC/TQRC 15.2.5-s803 (64bit) Tue Sep 13 18:23:58 PDT 2016 (Linux 2.6.18-194.el5)
+
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+getDrawView
+loadWorkspace -name Physical
+win
+encMessage warning 0
+encMessage debug 0
+encMessage info 0
+restoreDesign /home/sfs6562/CE392/backend/innovus/Top_final_layout.enc.dat key_generation
+setDrawView fplan
+encMessage warning 1
+encMessage debug 0
+encMessage info 1
+pan 69.454 38.909
+pan -18.912 -63.645
+pan -55.088 123.209
+encMessage warning 0
+encMessage debug 0
+encMessage info 0
+restoreDesign /home/sfs6562/CE392/backend/innovus/Top_powerroute_clk_filler.enc.dat key_generation
+setDrawView fplan
+encMessage warning 1
+encMessage debug 0
+encMessage info 1
+setLayerPreference allM0 -isVisible 0
+setLayerPreference allM1 -isVisible 0
+setLayerPreference allM2Cont -isVisible 0
+setLayerPreference allM2 -isVisible 0
+setLayerPreference allM3Cont -isVisible 0
+setLayerPreference allM3 -isVisible 0
+setLayerPreference allM4Cont -isVisible 0
+setLayerPreference allM4 -isVisible 0
+setLayerPreference allM5Cont -isVisible 0
+setLayerPreference allM5 -isVisible 0
+setLayerPreference allM6Cont -isVisible 0
+setLayerPreference allM6 -isVisible 0
+setLayerPreference allM7Cont -isVisible 0
+setLayerPreference allM7 -isVisible 0
+setLayerPreference allM8Cont -isVisible 0
+setLayerPreference allM8 -isVisible 0
+setLayerPreference allM9Cont -isVisible 0
+setLayerPreference allM9 -isVisible 0
+setLayerPreference allM10Cont -isVisible 0
+setLayerPreference allM10 -isVisible 0
+setLayerPreference allM0 -isVisible 1
+setLayerPreference allM1 -isVisible 1
+setLayerPreference allM2Cont -isVisible 1
+setLayerPreference allM2 -isVisible 1
+setLayerPreference allM3Cont -isVisible 1
+setLayerPreference allM3 -isVisible 1
+setLayerPreference allM4Cont -isVisible 1
+setLayerPreference allM4 -isVisible 1
+setLayerPreference allM5Cont -isVisible 1
+setLayerPreference allM5 -isVisible 1
+setLayerPreference allM6Cont -isVisible 1
+setLayerPreference allM6 -isVisible 1
+setLayerPreference allM7Cont -isVisible 1
+setLayerPreference allM7 -isVisible 1
+setLayerPreference allM8Cont -isVisible 1
+setLayerPreference allM8 -isVisible 1
+setLayerPreference allM9Cont -isVisible 1
+setLayerPreference allM9 -isVisible 1
+setLayerPreference allM10Cont -isVisible 1
+setLayerPreference allM10 -isVisible 1
+setLayerPreference allM0 -isVisible 0
+setLayerPreference allM1 -isVisible 0
+setLayerPreference allM2Cont -isVisible 0
+setLayerPreference allM2 -isVisible 0
+setLayerPreference allM3Cont -isVisible 0
+setLayerPreference allM3 -isVisible 0
+setLayerPreference allM4Cont -isVisible 0
+setLayerPreference allM4 -isVisible 0
+setLayerPreference allM5Cont -isVisible 0
+setLayerPreference allM5 -isVisible 0
+setLayerPreference allM6Cont -isVisible 0
+setLayerPreference allM6 -isVisible 0
+setLayerPreference allM7Cont -isVisible 0
+setLayerPreference allM7 -isVisible 0
+setLayerPreference allM8Cont -isVisible 0
+setLayerPreference allM8 -isVisible 0
+setLayerPreference allM9Cont -isVisible 0
+setLayerPreference allM9 -isVisible 0
+setLayerPreference allM10Cont -isVisible 0
+setLayerPreference allM10 -isVisible 0
+selectInst FILLER_26578
+setLayerPreference allM0 -isVisible 1
+setLayerPreference allM1 -isVisible 1
+setLayerPreference allM2Cont -isVisible 1
+setLayerPreference allM2 -isVisible 1
+setLayerPreference allM3Cont -isVisible 1
+setLayerPreference allM3 -isVisible 1
+setLayerPreference allM4Cont -isVisible 1
+setLayerPreference allM4 -isVisible 1
+setLayerPreference allM5Cont -isVisible 1
+setLayerPreference allM5 -isVisible 1
+setLayerPreference allM6Cont -isVisible 1
+setLayerPreference allM6 -isVisible 1
+setLayerPreference allM7Cont -isVisible 1
+setLayerPreference allM7 -isVisible 1
+setLayerPreference allM8Cont -isVisible 1
+setLayerPreference allM8 -isVisible 1
+setLayerPreference allM9Cont -isVisible 1
+setLayerPreference allM9 -isVisible 1
+setLayerPreference allM10Cont -isVisible 1
+setLayerPreference allM10 -isVisible 1
+setLayerPreference allM1 -isVisible 0
+setLayerPreference allM10 -isVisible 0
+setLayerPreference allM10 -isVisible 1
+setLayerPreference bump -isVisible 0
+setLayerPreference bumpBack -isVisible 0
+setLayerPreference bumpConnect -isVisible 0
+setLayerPreference bump -isVisible 1
+setLayerPreference bumpBack -isVisible 1
+setLayerPreference bumpConnect -isVisible 1
+setLayerPreference allM10 -isVisible 0
+setLayerPreference allM10Cont -isVisible 0
+setLayerPreference allM10 -isVisible 1
+setLayerPreference allM10Cont -isVisible 1
+setLayerPreference allM1 -isVisible 1
+setLayerPreference allM1 -isVisible 0
+setLayerPreference allM1 -isVisible 1
+pan 23.809 -4.329
+pan -139.128 7.705
+encMessage warning 0
+encMessage debug 0
+encMessage info 0
+restoreDesign /home/sfs6562/CE392/backend/innovus/Top_place.enc.dat key_generation
+setDrawView fplan
+encMessage warning 1
+encMessage debug 0
+encMessage info 1
+encMessage warning 0
+encMessage debug 0
+encMessage info 0
+restoreDesign /home/sfs6562/CE392/backend/innovus/Top_final_layout.enc.dat key_generation
+setDrawView fplan
+encMessage warning 1
+encMessage debug 0
+encMessage info 1
+loadFPlan Top_final_layout.enc.dat/key_generation.fp.spr.gz
+setDrawView fplan
+fit
+pan 57.074 3.272
+fit
+encMessage warning 0
+encMessage debug 0
+encMessage info 0
+restoreDesign /home/sfs6562/CE392/backend/innovus/Top_final_layout.enc.dat key_generation
+setDrawView fplan
+encMessage warning 1
+encMessage debug 0
+encMessage info 1
+pan -28.034 23.973
+pan 51.504 -51.504
+encMessage warning 0
+encMessage debug 0
+encMessage info 0
+restoreDesign /home/sfs6562/CE392/backend/innovus/Top.enc.dat key_generation
+setDrawView fplan
+encMessage warning 1
+encMessage debug 0
+encMessage info 1
+addRing -nets {VSS VDD} -type core_rings -follow io -layer {top metal5 bottom metal5 left metal4 right metal4} -width {top 1 bottom 1 left 1 right 1} -spacing {top 1 bottom 1 left 1 right 1} -offset {top 0 bottom 0 left 0 right 0} -center 0 -extend_corner {} -threshold 0 -jog_distance 0 -snap_wire_center_to_grid None
+addStripe -block_ring_top_layer_limit metal5 -max_same_layer_jog_length 1.6 -padcore_ring_bottom_layer_limit metal3 -set_to_set_distance 5 -stacked_via_top_layer metal10 -padcore_ring_top_layer_limit metal5 -spacing 1 -xleft_offset 1 -merge_stripes_value 0.095 -layer metal4 -block_ring_bottom_layer_limit metal3 -width 1 -nets {VSS VDD} -stacked_via_bottom_layer metal1
+sroute -connect { blockPin padPin padRing corePin floatingStripe } -layerChangeRange { 1 10 } -blockPinTarget {nearestRingStripe nearestTarget } -padPinPortConnect { allPort oneGeom } -checkAlignedSecondaryPin 1 -blockPin useLef -allowJogging 1 -crossoverViaBottomLayer 1 -allowLayerChange 1 -targetViaTopLayer 10 -crossoverViaTopLayer 10 -targetViaBottomLayer 1 -nets { VDD VSS }
+saveDesign Top_power.enc
+editPowerVia -skip_via_on_pin Standardcell -bottom_layer metal1 -add_vias 1 -top_layer metal8
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setPlaceMode -reset
+setPlaceMode -congEffort auto -timingDriven 1 -modulePlan 1 -clkGateAware 1 -powerDriven 0 -ignoreScan 1 -reorderScan 1 -ignoreSpare 0 -placeIOPins 0 -moduleAwareSpare 0 -preserveRouting 0 -rmAffectedRouting 0 -checkRoute 0 -swapEEQ 0
+setPlaceMode -fp false
+placeDesign
+timeDesign -preCTS -numPaths 200
+optDesign -preCTS -numPaths 200
+setDrawView place
+saveDesign Top_place.enc
+setLayerPreference allM0 -isVisible 0
+setLayerPreference allM1 -isVisible 0
+setLayerPreference allM2Cont -isVisible 0
+setLayerPreference allM2 -isVisible 0
+setLayerPreference allM3Cont -isVisible 0
+setLayerPreference allM3 -isVisible 0
+setLayerPreference allM4Cont -isVisible 0
+setLayerPreference allM4 -isVisible 0
+setLayerPreference allM5Cont -isVisible 0
+setLayerPreference allM5 -isVisible 0
+setLayerPreference allM6Cont -isVisible 0
+setLayerPreference allM6 -isVisible 0
+setLayerPreference allM7Cont -isVisible 0
+setLayerPreference allM7 -isVisible 0
+setLayerPreference allM8Cont -isVisible 0
+setLayerPreference allM8 -isVisible 0
+setLayerPreference allM9Cont -isVisible 0
+setLayerPreference allM9 -isVisible 0
+setLayerPreference allM10Cont -isVisible 0
+setLayerPreference allM10 -isVisible 0
+setLayerPreference allM0 -isVisible 1
+setLayerPreference allM1 -isVisible 1
+setLayerPreference allM2Cont -isVisible 1
+setLayerPreference allM2 -isVisible 1
+setLayerPreference allM3Cont -isVisible 1
+setLayerPreference allM3 -isVisible 1
+setLayerPreference allM4Cont -isVisible 1
+setLayerPreference allM4 -isVisible 1
+setLayerPreference allM5Cont -isVisible 1
+setLayerPreference allM5 -isVisible 1
+setLayerPreference allM6Cont -isVisible 1
+setLayerPreference allM6 -isVisible 1
+setLayerPreference allM7Cont -isVisible 1
+setLayerPreference allM7 -isVisible 1
+setLayerPreference allM8Cont -isVisible 1
+setLayerPreference allM8 -isVisible 1
+setLayerPreference allM9Cont -isVisible 1
+setLayerPreference allM9 -isVisible 1
+setLayerPreference allM10Cont -isVisible 1
+setLayerPreference allM10 -isVisible 1
+setLayerPreference allM0 -isVisible 0
+setLayerPreference allM1 -isVisible 0
+setLayerPreference allM2Cont -isVisible 0
+setLayerPreference allM2 -isVisible 0
+setLayerPreference allM3Cont -isVisible 0
+setLayerPreference allM3 -isVisible 0
+setLayerPreference allM4Cont -isVisible 0
+setLayerPreference allM4 -isVisible 0
+setLayerPreference allM5Cont -isVisible 0
+setLayerPreference allM5 -isVisible 0
+setLayerPreference allM6Cont -isVisible 0
+setLayerPreference allM6 -isVisible 0
+setLayerPreference allM7Cont -isVisible 0
+setLayerPreference allM7 -isVisible 0
+setLayerPreference allM8Cont -isVisible 0
+setLayerPreference allM8 -isVisible 0
+setLayerPreference allM9Cont -isVisible 0
+setLayerPreference allM9 -isVisible 0
+setLayerPreference allM10Cont -isVisible 0
+setLayerPreference allM10 -isVisible 0
+setLayerPreference allM0 -isVisible 1
+setLayerPreference allM1 -isVisible 1
+setLayerPreference allM2Cont -isVisible 1
+setLayerPreference allM2 -isVisible 1
+setLayerPreference allM3Cont -isVisible 1
+setLayerPreference allM3 -isVisible 1
+setLayerPreference allM4Cont -isVisible 1
+setLayerPreference allM4 -isVisible 1
+setLayerPreference allM5Cont -isVisible 1
+setLayerPreference allM5 -isVisible 1
+setLayerPreference allM6Cont -isVisible 1
+setLayerPreference allM6 -isVisible 1
+setLayerPreference allM7Cont -isVisible 1
+setLayerPreference allM7 -isVisible 1
+setLayerPreference allM8Cont -isVisible 1
+setLayerPreference allM8 -isVisible 1
+setLayerPreference allM9Cont -isVisible 1
+setLayerPreference allM9 -isVisible 1
+setLayerPreference allM10Cont -isVisible 1
+setLayerPreference allM10 -isVisible 1
+setLayerPreference allM0 -isVisible 0
+setLayerPreference allM1 -isVisible 0
+setLayerPreference allM2Cont -isVisible 0
+setLayerPreference allM2 -isVisible 0
+setLayerPreference allM3Cont -isVisible 0
+setLayerPreference allM3 -isVisible 0
+setLayerPreference allM4Cont -isVisible 0
+setLayerPreference allM4 -isVisible 0
+setLayerPreference allM5Cont -isVisible 0
+setLayerPreference allM5 -isVisible 0
+setLayerPreference allM6Cont -isVisible 0
+setLayerPreference allM6 -isVisible 0
+setLayerPreference allM7Cont -isVisible 0
+setLayerPreference allM7 -isVisible 0
+setLayerPreference allM8Cont -isVisible 0
+setLayerPreference allM8 -isVisible 0
+setLayerPreference allM9Cont -isVisible 0
+setLayerPreference allM9 -isVisible 0
+setLayerPreference allM10Cont -isVisible 0
+setLayerPreference allM10 -isVisible 0
+setLayerPreference allM0 -isVisible 1
+setLayerPreference allM1 -isVisible 1
+setLayerPreference allM2Cont -isVisible 1
+setLayerPreference allM2 -isVisible 1
+setLayerPreference allM3Cont -isVisible 1
+setLayerPreference allM3 -isVisible 1
+setLayerPreference allM4Cont -isVisible 1
+setLayerPreference allM4 -isVisible 1
+setLayerPreference allM5Cont -isVisible 1
+setLayerPreference allM5 -isVisible 1
+setLayerPreference allM6Cont -isVisible 1
+setLayerPreference allM6 -isVisible 1
+setLayerPreference allM7Cont -isVisible 1
+setLayerPreference allM7 -isVisible 1
+setLayerPreference allM8Cont -isVisible 1
+setLayerPreference allM8 -isVisible 1
+setLayerPreference allM9Cont -isVisible 1
+setLayerPreference allM9 -isVisible 1
+setLayerPreference allM10Cont -isVisible 1
+setLayerPreference allM10 -isVisible 1
+setLayerPreference allM0 -isVisible 0
+setLayerPreference allM1 -isVisible 0
+setLayerPreference allM2Cont -isVisible 0
+setLayerPreference allM2 -isVisible 0
+setLayerPreference allM3Cont -isVisible 0
+setLayerPreference allM3 -isVisible 0
+setLayerPreference allM4Cont -isVisible 0
+setLayerPreference allM4 -isVisible 0
+setLayerPreference allM5Cont -isVisible 0
+setLayerPreference allM5 -isVisible 0
+setLayerPreference allM6Cont -isVisible 0
+setLayerPreference allM6 -isVisible 0
+setLayerPreference allM7Cont -isVisible 0
+setLayerPreference allM7 -isVisible 0
+setLayerPreference allM8Cont -isVisible 0
+setLayerPreference allM8 -isVisible 0
+setLayerPreference allM9Cont -isVisible 0
+setLayerPreference allM9 -isVisible 0
+setLayerPreference allM10Cont -isVisible 0
+setLayerPreference allM10 -isVisible 0
+setLayerPreference allM0 -isVisible 1
+setLayerPreference allM1 -isVisible 1
+setLayerPreference allM2Cont -isVisible 1
+setLayerPreference allM2 -isVisible 1
+setLayerPreference allM3Cont -isVisible 1
+setLayerPreference allM3 -isVisible 1
+setLayerPreference allM4Cont -isVisible 1
+setLayerPreference allM4 -isVisible 1
+setLayerPreference allM5Cont -isVisible 1
+setLayerPreference allM5 -isVisible 1
+setLayerPreference allM6Cont -isVisible 1
+setLayerPreference allM6 -isVisible 1
+setLayerPreference allM7Cont -isVisible 1
+setLayerPreference allM7 -isVisible 1
+setLayerPreference allM8Cont -isVisible 1
+setLayerPreference allM8 -isVisible 1
+setLayerPreference allM9Cont -isVisible 1
+setLayerPreference allM9 -isVisible 1
+setLayerPreference allM10Cont -isVisible 1
+setLayerPreference allM10 -isVisible 1
+setLayerPreference allM0 -isVisible 0
+setLayerPreference allM1 -isVisible 0
+setLayerPreference allM2Cont -isVisible 0
+setLayerPreference allM2 -isVisible 0
+setLayerPreference allM3Cont -isVisible 0
+setLayerPreference allM3 -isVisible 0
+setLayerPreference allM4Cont -isVisible 0
+setLayerPreference allM4 -isVisible 0
+setLayerPreference allM5Cont -isVisible 0
+setLayerPreference allM5 -isVisible 0
+setLayerPreference allM6Cont -isVisible 0
+setLayerPreference allM6 -isVisible 0
+setLayerPreference allM7Cont -isVisible 0
+setLayerPreference allM7 -isVisible 0
+setLayerPreference allM8Cont -isVisible 0
+setLayerPreference allM8 -isVisible 0
+setLayerPreference allM9Cont -isVisible 0
+setLayerPreference allM9 -isVisible 0
+setLayerPreference allM10Cont -isVisible 0
+setLayerPreference allM10 -isVisible 0
+setLayerPreference allM0 -isVisible 1
+setLayerPreference allM1 -isVisible 1
+setLayerPreference allM2Cont -isVisible 1
+setLayerPreference allM2 -isVisible 1
+setLayerPreference allM3Cont -isVisible 1
+setLayerPreference allM3 -isVisible 1
+setLayerPreference allM4Cont -isVisible 1
+setLayerPreference allM4 -isVisible 1
+setLayerPreference allM5Cont -isVisible 1
+setLayerPreference allM5 -isVisible 1
+setLayerPreference allM6Cont -isVisible 1
+setLayerPreference allM6 -isVisible 1
+setLayerPreference allM7Cont -isVisible 1
+setLayerPreference allM7 -isVisible 1
+setLayerPreference allM8Cont -isVisible 1
+setLayerPreference allM8 -isVisible 1
+setLayerPreference allM9Cont -isVisible 1
+setLayerPreference allM9 -isVisible 1
+setLayerPreference allM10Cont -isVisible 1
+setLayerPreference allM10 -isVisible 1
+setLayerPreference allM0 -isVisible 0
+setLayerPreference allM1 -isVisible 0
+setLayerPreference allM2Cont -isVisible 0
+setLayerPreference allM2 -isVisible 0
+setLayerPreference allM3Cont -isVisible 0
+setLayerPreference allM3 -isVisible 0
+setLayerPreference allM4Cont -isVisible 0
+setLayerPreference allM4 -isVisible 0
+setLayerPreference allM5Cont -isVisible 0
+setLayerPreference allM5 -isVisible 0
+setLayerPreference allM6Cont -isVisible 0
+setLayerPreference allM6 -isVisible 0
+setLayerPreference allM7Cont -isVisible 0
+setLayerPreference allM7 -isVisible 0
+setLayerPreference allM8Cont -isVisible 0
+setLayerPreference allM8 -isVisible 0
+setLayerPreference allM9Cont -isVisible 0
+setLayerPreference allM9 -isVisible 0
+setLayerPreference allM10Cont -isVisible 0
+setLayerPreference allM10 -isVisible 0
+setLayerPreference allM0 -isVisible 1
+setLayerPreference allM1 -isVisible 1
+setLayerPreference allM2Cont -isVisible 1
+setLayerPreference allM2 -isVisible 1
+setLayerPreference allM3Cont -isVisible 1
+setLayerPreference allM3 -isVisible 1
+setLayerPreference allM4Cont -isVisible 1
+setLayerPreference allM4 -isVisible 1
+setLayerPreference allM5Cont -isVisible 1
+setLayerPreference allM5 -isVisible 1
+setLayerPreference allM6Cont -isVisible 1
+setLayerPreference allM6 -isVisible 1
+setLayerPreference allM7Cont -isVisible 1
+setLayerPreference allM7 -isVisible 1
+setLayerPreference allM8Cont -isVisible 1
+setLayerPreference allM8 -isVisible 1
+setLayerPreference allM9Cont -isVisible 1
+setLayerPreference allM9 -isVisible 1
+setLayerPreference allM10Cont -isVisible 1
+setLayerPreference allM10 -isVisible 1
+setLayerPreference allM0 -isVisible 0
+setLayerPreference allM1 -isVisible 0
+setLayerPreference allM2Cont -isVisible 0
+setLayerPreference allM2 -isVisible 0
+setLayerPreference allM3Cont -isVisible 0
+setLayerPreference allM3 -isVisible 0
+setLayerPreference allM4Cont -isVisible 0
+setLayerPreference allM4 -isVisible 0
+setLayerPreference allM5Cont -isVisible 0
+setLayerPreference allM5 -isVisible 0
+setLayerPreference allM6Cont -isVisible 0
+setLayerPreference allM6 -isVisible 0
+setLayerPreference allM7Cont -isVisible 0
+setLayerPreference allM7 -isVisible 0
+setLayerPreference allM8Cont -isVisible 0
+setLayerPreference allM8 -isVisible 0
+setLayerPreference allM9Cont -isVisible 0
+setLayerPreference allM9 -isVisible 0
+setLayerPreference allM10Cont -isVisible 0
+setLayerPreference allM10 -isVisible 0
+encMessage warning 0
+encMessage debug 0
+encMessage info 0
+restoreDesign /home/sfs6562/CE392/backend/innovus/Top_final_layout.enc.dat key_generation
+setDrawView fplan
+encMessage warning 1
+encMessage debug 0
+encMessage info 1
+encMessage warning 0
+encMessage debug 0
+encMessage info 0
+restoreDesign /home/sfs6562/CE392/backend/innovus/Top_final_layout.enc.dat key_generation
+setDrawView fplan
+encMessage warning 1
+encMessage debug 0
+encMessage info 1
+setLayerPreference allM0 -isVisible 1
+setLayerPreference allM1 -isVisible 1
+setLayerPreference allM2Cont -isVisible 1
+setLayerPreference allM2 -isVisible 1
+setLayerPreference allM3Cont -isVisible 1
+setLayerPreference allM3 -isVisible 1
+setLayerPreference allM4Cont -isVisible 1
+setLayerPreference allM4 -isVisible 1
+setLayerPreference allM5Cont -isVisible 1
+setLayerPreference allM5 -isVisible 1
+setLayerPreference allM6Cont -isVisible 1
+setLayerPreference allM6 -isVisible 1
+setLayerPreference allM7Cont -isVisible 1
+setLayerPreference allM7 -isVisible 1
+setLayerPreference allM8Cont -isVisible 1
+setLayerPreference allM8 -isVisible 1
+setLayerPreference allM9Cont -isVisible 1
+setLayerPreference allM9 -isVisible 1
+setLayerPreference allM10Cont -isVisible 1
+setLayerPreference allM10 -isVisible 1
+setLayerPreference allM0 -isVisible 0
+setLayerPreference allM1 -isVisible 0
+setLayerPreference allM2Cont -isVisible 0
+setLayerPreference allM2 -isVisible 0
+setLayerPreference allM3Cont -isVisible 0
+setLayerPreference allM3 -isVisible 0
+setLayerPreference allM4Cont -isVisible 0
+setLayerPreference allM4 -isVisible 0
+setLayerPreference allM5Cont -isVisible 0
+setLayerPreference allM5 -isVisible 0
+setLayerPreference allM6Cont -isVisible 0
+setLayerPreference allM6 -isVisible 0
+setLayerPreference allM7Cont -isVisible 0
+setLayerPreference allM7 -isVisible 0
+setLayerPreference allM8Cont -isVisible 0
+setLayerPreference allM8 -isVisible 0
+setLayerPreference allM9Cont -isVisible 0
+setLayerPreference allM9 -isVisible 0
+setLayerPreference allM10Cont -isVisible 0
+setLayerPreference allM10 -isVisible 0
+setLayerPreference allM0 -isVisible 1
+setLayerPreference allM1 -isVisible 1
+setLayerPreference allM2Cont -isVisible 1
+setLayerPreference allM2 -isVisible 1
+setLayerPreference allM3Cont -isVisible 1
+setLayerPreference allM3 -isVisible 1
+setLayerPreference allM4Cont -isVisible 1
+setLayerPreference allM4 -isVisible 1
+setLayerPreference allM5Cont -isVisible 1
+setLayerPreference allM5 -isVisible 1
+setLayerPreference allM6Cont -isVisible 1
+setLayerPreference allM6 -isVisible 1
+setLayerPreference allM7Cont -isVisible 1
+setLayerPreference allM7 -isVisible 1
+setLayerPreference allM8Cont -isVisible 1
+setLayerPreference allM8 -isVisible 1
+setLayerPreference allM9Cont -isVisible 1
+setLayerPreference allM9 -isVisible 1
+setLayerPreference allM10Cont -isVisible 1
+setLayerPreference allM10 -isVisible 1
+pan -2.983 3.717
+pan -1.744 6.333
+setLayerPreference allM1 -isVisible 0
+setLayerPreference allM1 -isVisible 1
+setLayerPreference allM1 -isVisible 0
+setLayerPreference allM1 -isVisible 1
+setLayerPreference allM1 -isVisible 0
+setLayerPreference allM10 -isVisible 0
+setLayerPreference bump -isVisible 0
+setLayerPreference bumpBack -isVisible 0
+setLayerPreference bumpConnect -isVisible 0
+setLayerPreference bump -isVisible 1
+setLayerPreference bumpBack -isVisible 1
+setLayerPreference bumpConnect -isVisible 1
+setLayerPreference allM10Cont -isVisible 0
+setLayerPreference allM9 -isVisible 0
+setLayerPreference allM9Cont -isVisible 0
+setLayerPreference allM8 -isVisible 0
+setLayerPreference allM8Cont -isVisible 0
+setLayerPreference allM7 -isVisible 0
+setLayerPreference allM7Cont -isVisible 0
+setLayerPreference allM6 -isVisible 0
+setLayerPreference allM6Cont -isVisible 0
+setLayerPreference allM5 -isVisible 0
+setLayerPreference allM5Cont -isVisible 0
+setLayerPreference allM4 -isVisible 0
+setLayerPreference allM4 -isVisible 1
+setLayerPreference allM4 -isVisible 0
+setLayerPreference allM4 -isVisible 1
+setLayerPreference allM4 -isVisible 0
+setLayerPreference allM4 -isVisible 1
+setLayerPreference allM4 -isVisible 0
+selectVia 204.0400 65.9950 205.0400 66.1650 4 VSS
+encMessage warning 0
+encMessage debug 0
+encMessage info 0
+restoreDesign /home/sfs6562/CE392/backend/innovus/Top_place.enc.dat key_generation
+setDrawView fplan
+encMessage warning 1
+encMessage debug 0
+encMessage info 1
+setLayerPreference allM0 -isVisible 1
+setLayerPreference allM1 -isVisible 1
+setLayerPreference allM2Cont -isVisible 1
+setLayerPreference allM2 -isVisible 1
+setLayerPreference allM3Cont -isVisible 1
+setLayerPreference allM3 -isVisible 1
+setLayerPreference allM4Cont -isVisible 1
+setLayerPreference allM4 -isVisible 1
+setLayerPreference allM5Cont -isVisible 1
+setLayerPreference allM5 -isVisible 1
+setLayerPreference allM6Cont -isVisible 1
+setLayerPreference allM6 -isVisible 1
+setLayerPreference allM7Cont -isVisible 1
+setLayerPreference allM7 -isVisible 1
+setLayerPreference allM8Cont -isVisible 1
+setLayerPreference allM8 -isVisible 1
+setLayerPreference allM9Cont -isVisible 1
+setLayerPreference allM9 -isVisible 1
+setLayerPreference allM10Cont -isVisible 1
+setLayerPreference allM10 -isVisible 1
+encMessage warning 0
+encMessage debug 0
+encMessage info 0
+restoreDesign /home/sfs6562/CE392/backend/innovus/Top_place.enc.dat key_generation
+setDrawView fplan
+encMessage warning 1
+encMessage debug 0
+encMessage info 1
+encMessage warning 0
+encMessage debug 0
+encMessage info 0
+restoreDesign /home/sfs6562/CE392/backend/innovus/Top.enc.dat key_generation
+setDrawView fplan
+encMessage warning 1
+encMessage debug 0
+encMessage info 1
+addRing -nets {VSS VDD} -type core_rings -follow io -layer {top metal5 bottom metal5 left metal4 right metal4} -width {top 1 bottom 1 left 1 right 1} -spacing {top 1 bottom 1 left 1 right 1} -offset {top 0 bottom 0 left 0 right 0} -center 0 -extend_corner {} -threshold 0 -jog_distance 0 -snap_wire_center_to_grid None
+addStripe -block_ring_top_layer_limit metal5 -max_same_layer_jog_length 1.6 -padcore_ring_bottom_layer_limit metal3 -set_to_set_distance 5 -stacked_via_top_layer metal10 -padcore_ring_top_layer_limit metal5 -spacing 1 -xleft_offset 1 -merge_stripes_value 0.095 -layer metal4 -block_ring_bottom_layer_limit metal3 -width 1 -nets {VSS VDD} -stacked_via_bottom_layer metal1
+sroute -connect { blockPin padPin padRing corePin floatingStripe } -layerChangeRange { 1 10 } -blockPinTarget {nearestRingStripe nearestTarget } -padPinPortConnect { allPort oneGeom } -checkAlignedSecondaryPin 1 -blockPin useLef -allowJogging 1 -crossoverViaBottomLayer 1 -allowLayerChange 1 -targetViaTopLayer 10 -crossoverViaTopLayer 10 -targetViaBottomLayer 1 -nets { VDD VSS }
+saveDesign Top_power.enc
+editPowerVia -skip_via_on_pin Standardcell -bottom_layer metal1 -add_vias 1 -top_layer metal8
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setPlaceMode -reset
+setPlaceMode -congEffort auto -timingDriven 1 -modulePlan 1 -clkGateAware 1 -powerDriven 0 -ignoreScan 1 -reorderScan 1 -ignoreSpare 0 -placeIOPins 0 -moduleAwareSpare 0 -preserveRouting 0 -rmAffectedRouting 0 -checkRoute 0 -swapEEQ 0
+setPlaceMode -fp false
+placeDesign
+timeDesign -preCTS -numPaths 200
+optDesign -preCTS -numPaths 200
+setDrawView place
+saveDesign Top_place
+encMessage warning 0
+encMessage debug 0
+encMessage info 0
+restoreDesign /home/sfs6562/CE392/backend/innovus/Top_place.dat key_generation
+setDrawView fplan
+encMessage warning 1
+encMessage debug 0
+encMessage info 1
+setDrawView place
+encMessage warning 0
+encMessage debug 0
+encMessage info 0
+restoreDesign /home/sfs6562/CE392/backend/innovus/Top_final_layout.enc.dat key_generation
+setDrawView fplan
+encMessage warning 1
+encMessage debug 0
+encMessage info 1
+setDrawView
+setDrawView place
+pan 40.039 9.735
+pan -230.297 58.610
